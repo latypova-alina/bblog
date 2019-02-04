@@ -1,8 +1,31 @@
-class ApplicationPolicy
-  attr_reader :user, :record
+class ApplicationPolicy < ActionPolicy::Base
+  authorize :user
 
-  def initialize(user, record)
-    @user = user
-    @record = record.to_model
+  def manage?
+    false
+  end
+
+  def index?
+    manage?
+  end
+
+  def new?
+    manage?
+  end
+
+  def edit?
+    manage?
+  end
+
+  def destroy?
+    manage?
+  end
+
+  def create?
+    new?
+  end
+
+  def update?
+    edit?
   end
 end

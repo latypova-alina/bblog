@@ -1,14 +1,18 @@
 module Authorization
   extend ActiveSupport::Concern
+  include ActionView::ModelNaming
 
   included do
-    include Pundit
-    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+    rescue_from ActionPolicy::Unauthorized, with: :user_not_authorized
   end
 
   private
 
   def user_not_authorized
-    redirect_to(root_path)
+    redirect_to(root_path, alert: t("errors.access_denied"))
+  end
+
+  def policy_for(record:, **opts)
+    super(record: convert_to_model(record), **opts)
   end
 end
