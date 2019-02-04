@@ -29,11 +29,11 @@ gem "slim"
 
 # all other gems
 gem "action_policy"
-gem "enumerize"
 gem "decent_decoration"
 gem "decent_exposure"
 gem "devise"
 gem "draper"
+gem "enumerize"
 gem "flamegraph"
 gem "google-analytics-rails"
 gem "health_check"
