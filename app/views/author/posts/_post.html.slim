@@ -1,0 +1,11 @@
+tr
+  td = link_to post.title, author_post_path(post)
+  td
+    = link_to "Edit",
+      edit_author_post_path(post),
+      class: "btn btn-sm btn-primary btn-block"
+    = link_to "Delete",
+      author_post_path(post),
+      method: :delete,
+      data: { confirm: "Are you sure?" },
+      class: "btn btn-sm btn-danger btn-block"
