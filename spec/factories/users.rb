@@ -14,4 +14,8 @@ FactoryGirl.define do
       user.update(confirmation_sent_at: 3.days.ago)
     end
   end
+
+  trait :author do
+    role "author"
+  end
 end
