@@ -3,7 +3,9 @@ require "rails_helper"
 feature "Update Post" do
   include_context "author signed in"
 
-  let!(:post) { create :post, user: current_user, title: "Cool Post" }
+  before do
+    create :post, user: current_user, title: "Cool Post"
+  end
 
   scenario "Author updates post" do
     visit author_posts_path
