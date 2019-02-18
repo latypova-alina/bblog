@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    email
+    email { generate :reader_email }
     full_name { Faker::Name.name }
     password "123456"
     password_confirmation { password }
@@ -17,5 +17,6 @@ FactoryGirl.define do
 
   trait :author do
     role "author"
+    email { generate :author_email }
   end
 end
