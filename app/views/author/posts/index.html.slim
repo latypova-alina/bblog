@@ -1,0 +1,15 @@
+.row.align-items-center
+  .col-md-4.mb-4
+    h1 Posts
+  .col-md-4.mb-4
+  .col-md-4.mb-4.text-right
+    = link_to "Create New Post", new_author_post_path, class: "button"
+
+  table
+    thead
+      tr
+        th Title
+        th Author
+        th Actions
+    tbody
+      = render partial: "post", collection: posts
