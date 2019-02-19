@@ -7,6 +7,7 @@ feature "Create Post" do
     visit new_author_post_path
 
     fill_in "Title", with: "Cool Post"
+    attach_file("post[image]")
     fill_in "Content", with: "Post Content"
 
     click_on "Create Post"
@@ -19,6 +20,8 @@ feature "Create Post" do
     visit new_author_post_path
 
     fill_in "Title", with: "Cool Post"
+    attach_file("post[image]")
+
     click_on "Create Post"
 
     expect(page).to have_content("Post could not be created.")

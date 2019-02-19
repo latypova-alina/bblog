@@ -13,6 +13,7 @@ feature "Update Post" do
     click_on "Edit"
 
     fill_in "Title", with: "Super Cool Post"
+    attach_file("post[image]")
     click_on "Update Post"
 
     expect(page).to have_content("Post was successfully updated.")

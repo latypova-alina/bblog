@@ -9,7 +9,7 @@ module Author
     def create
       post.save
 
-      respond_with(:author, post)
+      respond_with(post)
     end
 
     def edit
@@ -18,7 +18,7 @@ module Author
     def update
       post.update(post_params)
 
-      respond_with(:author, post)
+      respond_with(post)
     end
 
     def index
