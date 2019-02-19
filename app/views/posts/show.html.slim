@@ -4,7 +4,7 @@
       = post.title
       '
       small = post.creation_date
-    img.thumbnail src="https://placehold.it/850x350"
+    = image_tag post.large_image_url
     p = post.content
     .callout
       ul.menu.simple

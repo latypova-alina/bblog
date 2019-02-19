@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  expose :posts, :fetch_posts
+  expose_decorated :posts, :fetch_posts
   expose_decorated :post
 
   private

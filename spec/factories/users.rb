@@ -19,4 +19,10 @@ FactoryGirl.define do
     role "author"
     email { generate :author_email }
   end
+
+  trait :with_posts do
+    after(:create) do |user|
+      create_list :post, 3, user: user
+    end
+  end
 end

@@ -1,5 +1,6 @@
 = simple_form_for [:author, post] do |post_form|
   = post_form.input :title
+  = post_form.input :image, as: :file
   = post_form.input :content
 
   = post_form.button :submit
