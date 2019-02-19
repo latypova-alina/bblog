@@ -1,0 +1,5 @@
+.column
+  = link_to post_path(post) do
+    h5 = post.title
+    img.thumbnail src="https://placehold.it/500x150"
+    p = truncate(post.content, length: 120)
