@@ -25,6 +25,5 @@ feature "Create Post" do
     click_on "Create Post"
 
     expect(page).to have_content("Post could not be created.")
-    expect(page).to have_content("Content can't be blank")
   end
 end

@@ -1,12 +1,13 @@
-tr
-  td = link_to post.title, post_path(post)
-  td = post.user.full_name
-  td
+.column
+  = link_to post_path(post) do
+    h5 = post.title
+    = image_tag post.medium_image_url
+    p = truncate(post.content, length: 120)
     = link_to "Edit",
       edit_author_post_path(post),
-      class: "button"
+      class: "button small expanded"
     = link_to "Delete",
       author_post_path(post),
       method: :delete,
       data: { confirm: "Are you sure?" },
-      class: "alert button"
+      class: "alert button small expanded"

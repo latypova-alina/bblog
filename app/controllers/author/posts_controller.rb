@@ -1,7 +1,7 @@
 module Author
   class PostsController < Author::BaseController
-    expose :post
-    expose :posts, :fetch_posts
+    expose_decorated :post
+    expose_decorated :posts, :fetch_posts
 
     def new
     end
@@ -24,10 +24,18 @@ module Author
     def index
     end
 
+    def destroy
+      post.destroy
+
+      respond_with(:author, post)
+    end
+
     private
 
     def fetch_posts
       Post.where(user: current_user)
+          .order(created_at: :desc)
+          .page(params[:page]).per(4)
     end
 
     def authorize_resource!
