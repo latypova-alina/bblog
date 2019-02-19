@@ -35,7 +35,7 @@ module Author
     end
 
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :image)
             .merge(user: current_user)
     end
   end
