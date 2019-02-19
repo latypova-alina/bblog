@@ -1,5 +1,5 @@
 tr
-  td = link_to post.title, author_post_path(post)
+  td = link_to post.title, post_path(post)
   td = post.user.full_name
   td
     = link_to "Edit",
