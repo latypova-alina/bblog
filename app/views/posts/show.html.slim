@@ -1,0 +1,12 @@
+.row.medium-8.large-7.columns
+  .blog-post
+    h3
+      = post.title
+      '
+      small = post.creation_date
+    img.thumbnail src="https://placehold.it/850x350"
+    p = post.content
+    .callout
+      ul.menu.simple
+        li
+          a href="#" Author: #{post.user_full_name}

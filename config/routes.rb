@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     resources :posts, only: %i[index new create edit update show]
   end
 
-  root to: "pages#home"
+  resources :posts, only: %i[index show]
+
+  root to: "posts#index"
 end
