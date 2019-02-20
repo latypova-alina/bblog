@@ -1,0 +1,12 @@
+.row
+  .medium-6.large-6.columns
+    img alt=("picture of space") src=("https://placehold.it/400x400") /
+  .medium-6.large-6.columns
+    h1
+      = user.full_name
+    p
+      = user.about_info
+hr
+
+.row.medium-8.large-7.columns
+  = render partial: "post", collection: posts

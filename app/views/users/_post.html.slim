@@ -1,0 +1,10 @@
+.post
+  .text-center
+    = link_to post_path(post) do
+      h5
+        = post.title
+        '
+        small = post.creation_date
+      = image_tag post.medium_image_url
+    p = truncate(post.content, length: 120)
+hr
