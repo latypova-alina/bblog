@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Show User" do
-  let(:author) { create :user, :author, full_name: "John Smith", about_info: "I'm a cool author!" }
+  let(:author) { create :user, :author, :with_avatar, full_name: "John Smith", about_info: "I'm a cool author!" }
 
   before do
     create :post, title: "Some Post"
