@@ -8,6 +8,8 @@ feature "Sign Up" do
     visit new_user_registration_path
 
     fill_form(:user, user_attributes)
+    attach_file("user[avatar]")
+
     click_button "Sign up"
 
     open_email(registered_user.email)
