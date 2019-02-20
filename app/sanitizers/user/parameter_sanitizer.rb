@@ -3,6 +3,7 @@ class User
     USER_PARAMS = %i[
       full_name
       email
+      avatar
       password
       password_confirmation
       about_info
