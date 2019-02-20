@@ -26,4 +26,8 @@ FactoryGirl.define do
       create_list :post, 3, user: user
     end
   end
+
+  trait :with_avatar do
+    avatar { File.open("spec/support/fixtures/user_image_#{rand(1..5)}.jpg") }
+  end
 end

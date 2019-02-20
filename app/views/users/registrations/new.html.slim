@@ -17,6 +17,7 @@
 
       .form-inputs
         = f.input :full_name, required: true, autofocus: true
+        = f.input :avatar, as: :file
         = f.input :email, required: true
         = f.input :password, required: true
         = f.input :password_confirmation, required: true
