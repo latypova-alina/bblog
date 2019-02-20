@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :user do
     email { generate :reader_email }
     full_name { Faker::Name.name }
+    about_info { Faker::Hipster.paragraph }
     password "123456"
     password_confirmation { password }
     confirmed_at 1.hour.ago
