@@ -9,4 +9,4 @@
     .callout
       ul.menu.simple
         li
-          a href="#" Author: #{post.user_full_name}
+          = link_to "Author: #{post.user_full_name}", user_path(post.user)
