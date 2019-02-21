@@ -1,0 +1,26 @@
+body {
+  background-image: url("background.jpg");
+}
+
+a {
+  color: #91131b;
+
+  &:hover {
+    text-decoration: underline;
+    color: #91131b;
+  }
+}
+
+.pagination {
+  li.current {
+    background: #91131b;
+  }
+}
+
+.button {
+  background: #91131b;
+
+  &:hover {
+    background: #580505;
+  }
+}
