@@ -1,5 +1,5 @@
 body {
-  background-image: url("background.jpg");
+  background-image: image-url("background.jpg");
   font-family: Typewr;
 }
 
@@ -32,4 +32,12 @@ a {
   &:hover {
     background: $dark-red;
   }
+}
+
+.callout.alert {
+  background: $alert-color;
+}
+
+.callout.notice {
+  background: $success-color;
 }

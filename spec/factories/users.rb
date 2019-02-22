@@ -28,6 +28,6 @@ FactoryGirl.define do
   end
 
   trait :with_avatar do
-    avatar { File.open("spec/support/fixtures/user_image_#{rand(1..5)}.jpg") }
+    avatar { File.open("spec/support/fixtures/user_image_#{rand(1..3)}.jpg") }
   end
 end
