@@ -7,4 +7,12 @@ class ApplicationController < ActionController::Base
 
   responders :flash
   respond_to :html
+
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
+  protected
+
+  def record_not_found
+    redirect_to root_path, alert: "Page or record not found!"
+  end
 end
