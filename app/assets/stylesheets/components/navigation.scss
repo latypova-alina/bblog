@@ -1,4 +1,5 @@
 .top-bar {
+
   @include breakpoint(small only) {
     &-menu {
       flex-direction: column;
@@ -26,4 +27,8 @@
       display: none;
     }
   }
+}
+
+.menu .active > a {
+  background: $red;
 }

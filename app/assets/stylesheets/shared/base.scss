@@ -1,0 +1,35 @@
+body {
+  background-image: url("background.jpg");
+  font-family: Typewr;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Typewr;
+}
+
+a {
+  color: $red;
+
+  &:hover {
+    color: $red;
+    text-decoration: underline;
+  }
+}
+
+.pagination {
+  .current {
+    background: $red;
+  }
+}
+
+.button {
+  background: $red;
+
+  &:hover {
+    background: $dark-red;
+  }
+}
