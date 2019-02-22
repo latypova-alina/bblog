@@ -343,7 +343,7 @@ $select-triangle-color: $dark-gray;
 $select-radius: $global-radius;
 $input-color: $black;
 $input-placeholder-color: $medium-gray;
-$input-font-family: inherit;
+$input-font-family: Typewr;
 $input-font-size: rem-calc(16);
 $input-background: $white;
 $input-background-focus: $white;
@@ -564,5 +564,10 @@ $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
+
+@font-face{
+  font-family: Typewr;
+  src: font-url('fonts/TYPEWR_B.TTF')
+}
 
 @import "foundation";
