@@ -3,29 +3,33 @@ body {
   font-family: Typewr;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: Typewr;
 }
 
 a {
-  color: #91131b;
+  color: $red;
 
   &:hover {
+    color: $red;
     text-decoration: underline;
-    color: #91131b;
   }
 }
 
 .pagination {
-  li.current {
-    background: #91131b;
+  .current {
+    background: $red;
   }
 }
 
 .button {
-  background: #91131b;
+  background: $red;
 
   &:hover {
-    background: #580505;
+    background: $dark-red;
   }
 }
