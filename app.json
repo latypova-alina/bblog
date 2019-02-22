@@ -10,7 +10,11 @@
     "RACK_ENV": { "required": true },
     "RAILS_ENV": { "required": true },
     "RAILS_SERVE_STATIC_FILES": { "required": true },
-    "SECRET_KEY_BASE": { "generator": "secret" }
+    "SECRET_KEY_BASE": { "generator": "secret" },
+    "S3_BUCKET": { "required": true },
+    "S3_KEY": { "required": true },
+    "S3_REGION": { "required": true },
+    "S3_SECRET": { "required": true }
   },
   "addons": [
     "heroku-postgresql",
