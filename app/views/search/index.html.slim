@@ -1,0 +1,28 @@
+.row.small-up-2.large-up-2
+  ul#example-tabs.tabs[data-tabs]
+    li.tabs-title.is-active
+      a href="#posts-tab" aria-selected="true"
+        | Posts
+    li.tabs-title
+      a data-tabs-target="authors-tab" href="#authors-tab"
+        | Authors
+
+  .tabs-content data-tabs-content="example-tabs"
+    #posts-tab.tabs-panel.is-active
+      - if posts.blank?
+        p No posts were found
+      - else
+        .row.small-up-2.large-up-2
+          = render partial: "post", collection: posts
+        .row.text-center
+          = paginate posts
+
+    #authors-tab.tabs-panel
+      - if authors.blank?
+        p No authors were found
+      - else
+        .row.small-up-2.large-up-2
+          = render partial: "author", collection: authors
+        .row.text-center
+          = paginate authors
+
