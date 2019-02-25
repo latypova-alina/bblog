@@ -1,3 +1,12 @@
 .top-bar-left
   ul.menu
     li.menu-text = link_to "Home", root_path
+
+= simple_form_for :search, method: :get, url: search_index_path do |f|
+  top-bar-right.menu.inline-list
+    = f.input :param,
+              autofocus: false,
+              placeholder: "Search",
+              label: false,
+              input_html: { value: (search_param if defined?(search_param)) }
+    = f.button :submit, "Search"

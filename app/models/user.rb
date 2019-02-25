@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   extend Enumerize
+  include PgSearch
 
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :rememberable, :trackable, :validatable
@@ -13,4 +14,6 @@ class User < ApplicationRecord
   has_many :posts
 
   scope :authors, -> { where(role: :author) }
+
+  pg_search_scope :search, against: :full_name, using: { tsearch: { prefix: true } }
 end
