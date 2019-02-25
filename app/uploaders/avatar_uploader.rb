@@ -19,7 +19,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
     %w[jpg jpeg gif png]
   end
 
-  def default_url(*args)
+  def default_url(*)
     "default_avatar_#{version_name}.png"
   end
 end
