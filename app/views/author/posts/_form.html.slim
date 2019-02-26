@@ -1,5 +1,9 @@
 = simple_form_for [:author, post] do |post_form|
   = post_form.input :title
+
+  - if post.image_url
+    = image_tag post.medium_image_url
+
   = post_form.input :image, as: :file
   = post_form.input :content
 
