@@ -29,6 +29,7 @@ gem "slim"
 
 # all other gems
 gem "action_policy"
+gem "activeadmin"
 gem "carrierwave", "~> 1.0"
 gem "decent_decoration"
 gem "decent_exposure"
