@@ -13,7 +13,7 @@ ActiveAdmin.register Post do
     actions
   end
 
-  filter :user, label: "Author", collection: User.authors
+  filter :user, label: "Author", collection: proc { User.authors }
 
   show do
     attributes_table do
