@@ -15,5 +15,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :show
 
+  resource :feedback, only: %i[new create]
+
   root to: "posts#index"
 end
