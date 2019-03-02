@@ -16,6 +16,11 @@ FactoryGirl.define do
     end
   end
 
+  trait :admin do
+    role "admin"
+    email { generate :admin_email }
+  end
+
   trait :author do
     role "author"
     email { generate :author_email }

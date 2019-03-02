@@ -1,4 +1,5 @@
 FactoryGirl.create(:user)
+FactoryGirl.create(:user, :admin)
 
 2.times do
   FactoryGirl.create(:user, :author, :with_posts, :with_avatar).tap do |author|

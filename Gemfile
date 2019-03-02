@@ -29,6 +29,7 @@ gem "slim"
 
 # all other gems
 gem "action_policy"
+gem "activeadmin"
 gem "carrierwave", "~> 1.0"
 gem "decent_decoration"
 gem "decent_exposure"
@@ -57,7 +58,7 @@ group :staging, :production do
 end
 
 group :test do
-  gem "capybara"
+  gem "capybara", ">= 2.17"
   gem "codeclimate-test-reporter", require: false
   gem "database_cleaner"
   gem "email_spec"

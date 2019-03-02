@@ -1,0 +1,4 @@
+en:
+  active_admin:
+    dashboard_welcome:
+      welcome: "Welcome to Bblog admin dashboard"
