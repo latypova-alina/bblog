@@ -18,6 +18,6 @@ feature "Create Feedback" do
     expect(current_email).to have_body_text(feedback_attributes[:email])
     expect(current_email).to have_body_text(feedback_attributes[:message])
 
-    expect(page).to have_content("Feedback was successfully created.")
+    expect(page).to have_content("Your feedback was successfully sent!")
   end
 end
