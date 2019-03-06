@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-  actions :index, :show, :new, :create, :destroy
+  actions :all
 
   permit_params :title, :content, :image, :user_id
 
@@ -13,7 +13,7 @@ ActiveAdmin.register Post do
     actions
   end
 
-  filter :user, label: "Author", collection: User.authors
+  filter :user, label: "Author", collection: proc { User.authors }
 
   show do
     attributes_table do
@@ -31,7 +31,7 @@ ActiveAdmin.register Post do
 
   form do |f|
     f.inputs do
-      f.input :user_id, label: "Author", as: :select, collection: User.authors
+      f.input :user_id, label: "Author", as: :select, include_blank: false, collection: User.authors
       f.input :title
       f.input :content, as: :text
       f.input :image, as: :file

@@ -1,0 +1,5 @@
+p
+  | Hello, here is feedback from #{@feedback.name} (#{@feedback.email})
+
+blockquote
+  = @feedback.message

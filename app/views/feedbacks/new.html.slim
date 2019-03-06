@@ -1,0 +1,11 @@
+.feedback
+  .row.medium-5
+    h1 Contact Us
+    = simple_form_for(feedback, url: feedback_path) do |f|
+      .form-inputs
+        = f.input :name
+        = f.input :email
+        = f.input :message, as: :text
+
+      .form-actions
+        = f.button :submit, "Submit"

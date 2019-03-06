@@ -10,4 +10,6 @@ ActiveAdmin.setup do |config|
   config.batch_actions = true
 
   config.localize_format = :long
+
+  config.root_to = "posts#index"
 end
