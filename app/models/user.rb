@@ -12,6 +12,7 @@ class User < ApplicationRecord
   enumerize :role, in: %i[reader author admin], predicates: true
 
   has_many :posts
+  has_many :likes
 
   scope :authors, -> { where(role: :author) }
 

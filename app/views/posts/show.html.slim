@@ -10,3 +10,5 @@
       ul.menu.simple
         li
           = link_to "Author: #{post.user_full_name}", user_path(post.user)
+        li
+          = link_to "Like", post_likes_path(post), method: :post

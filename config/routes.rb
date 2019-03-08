@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     resources :posts, only: %i[index new create edit update destroy]
   end
 
-  resources :posts, only: %i[index show]
+
+  resources :posts, only: %i[index show] do
+    resources :likes, only: :create
+  end
 
   resources :search, only: :index
 

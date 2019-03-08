@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   include PgSearch
 
   belongs_to :user
+  has_many :likes
 
   validates :title, :content, :image, presence: true
 
