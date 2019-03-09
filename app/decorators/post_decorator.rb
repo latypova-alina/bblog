@@ -1,7 +1,7 @@
 class PostDecorator < ApplicationDecorator
   decorates_association :user
 
-  delegate :title, :content, :created_at, :image_url
+  delegate :title, :content, :created_at, :image_url, :id
   delegate :full_name, to: :user, prefix: true
 
   def creation_date

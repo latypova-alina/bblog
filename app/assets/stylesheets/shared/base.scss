@@ -14,7 +14,7 @@ h5 {
 a {
   color: $red;
 
-  &:hover {
+  &:hover, &:active, &:visited {
     color: $red;
     text-decoration: underline;
   }
@@ -40,4 +40,15 @@ a {
 
 .callout.notice {
   background: $success-color;
+}
+
+.fi-heart {
+  &:hover, {
+    color: $dark-red;
+    text-decoration: none;
+  }
+}
+
+.picked.fi-heart {
+  color: $dark-red;
 }

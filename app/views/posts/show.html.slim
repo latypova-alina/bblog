@@ -6,9 +6,8 @@
       small = post.creation_date
     = image_tag post.large_image_url
     p = post.content
-    .callout
-      ul.menu.simple
-        li
-          = link_to "Author: #{post.user_full_name}", user_path(post.user)
-        li
-          = link_to "Like", post_likes_path(post), method: :post
+    ul.menu.align-right
+      li
+        = link_to "Author: #{post.user_full_name}", user_path(post.user)
+      li
+        = link_to "", post_likes_path(post), method: :post, class: current_user.like_class(post.id)
