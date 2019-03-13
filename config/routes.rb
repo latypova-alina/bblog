@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     resources :posts, only: %i[index new create edit update destroy]
   end
 
+  namespace :api, defaults: { format: "jsonapi" } do
+    namespace :v1 do
+      resources :likes, only: :create
+    end
+  end
 
   resources :posts, only: %i[index show] do
     resources :likes, only: :create

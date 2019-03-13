@@ -14,7 +14,7 @@ class UserDecorator < ApplicationDecorator
   end
 
   def like_class(post_id)
-    liked?(post_id) ? "fi-heart picked" : "fi-heart"
+    liked?(post_id) ? "like fi-heart picked" : "like fi-heart"
   end
 
   private

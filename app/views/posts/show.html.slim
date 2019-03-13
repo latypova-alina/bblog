@@ -10,4 +10,5 @@
       li
         = link_to "Author: #{post.user_full_name}", user_path(post.user)
       li
-        = link_to "", post_likes_path(post), method: :post, class: current_user.like_class(post.id)
+        .js-like
+          a class=current_user.like_class(post.id) data-id=post.id
