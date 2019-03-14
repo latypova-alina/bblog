@@ -22,11 +22,10 @@ class Like extends Components.Base
         { post_id: @postId }
       success: (response) =>
         @_updateLike()
-        console.log("im here")
 
   _updateLike: () =>
-    @$refs.likeItem.addClass("picked")
+    console.log("im here")
+    @$refs.likeItem.removeClass("like fi-heart").addClass("like fi-heart picked")
 
 $ ->
-  for $el of $(".js-like")
-    new Like($el)
+  new Like($(".js-like"))
