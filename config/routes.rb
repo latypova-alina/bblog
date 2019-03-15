@@ -15,10 +15,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: %i[index show] do
-    resources :likes, only: :create
-  end
-
   resources :search, only: :index
 
   resources :users, only: :show

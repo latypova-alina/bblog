@@ -24,8 +24,7 @@ class Like extends Components.Base
         @_updateLike()
 
   _updateLike: () =>
-    console.log("im here")
-    @$refs.likeItem.removeClass("like fi-heart").addClass("like fi-heart picked")
+    @$refs.likeItem.addClass("picked")
 
 $ ->
   new Like($(".js-like"))
