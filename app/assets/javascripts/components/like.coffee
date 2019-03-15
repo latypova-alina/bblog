@@ -3,7 +3,7 @@ class Like extends Components.Base
     likeItem: "a.like"
 
   config:
-    newLikeUrl: "/api/v1/likes"
+    newLikeUrl: "/api/v1/posts/:post_id/likes"
 
   initialize: ->
     @postId = @$el.data("id")
@@ -15,11 +15,9 @@ class Like extends Components.Base
     event.preventDefault()
 
     $.ajax
-      url: @config.newLikeUrl
+      url: @config.newLikeUrl.replace(":post_id", @postId)
       type: "POST"
       dataType: "json"
-      data:
-        { post_id: @postId }
       success: (response) =>
         @_updateLike()
 
