@@ -6,11 +6,7 @@ module Api
         expose :like, -> { Like.new(post: post, user: current_user) }
 
         def create
-          if save_like.success?
-            respond_with_resource(like, location: posts_path)
-          else
-            respond_with_error(save_like.error_code, save_like.error_message)
-          end
+          respond_with_resource(like, location: posts_path) if save_like.success?
         end
 
         private
