@@ -6,7 +6,7 @@ class Like extends Components.Base
     newLikeUrl: "/api/v1/posts/:post_id/likes"
 
   initialize: ->
-    @postId = @$el.data("id")
+    @postId = @$el.data("post_id")
 
   bindings: ->
     @$refs.likeItem.click @_updatePostRating

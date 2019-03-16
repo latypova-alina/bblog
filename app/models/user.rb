@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
   enumerize :role, in: %i[reader author admin], predicates: true
 
-  has_many :posts
-  has_many :likes
+  has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   scope :authors, -> { where(role: :author) }
 

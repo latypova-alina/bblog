@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: "jsonapi" } do
     namespace :v1 do
-      resources :posts, only: [] do
-        resources :likes, only: :create, module: :posts
+      scope module: :user_scope do
+        resources :posts, only: [] do
+          resources :likes, only: :create, module: :posts
+        end
       end
     end
   end

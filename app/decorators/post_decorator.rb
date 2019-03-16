@@ -15,4 +15,16 @@ class PostDecorator < ApplicationDecorator
   def large_image_url
     image_url(:large)
   end
+
+  def like_class(user_id)
+    liked_by?(user_id) ? "like fi-heart picked" : "like fi-heart"
+  end
+
+  private
+
+  def liked_by?(user_id)
+    return false if user_id.blank?
+
+    object.likes.find_by(user_id: user_id)
+  end
 end

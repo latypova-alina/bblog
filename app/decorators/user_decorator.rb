@@ -12,14 +12,4 @@ class UserDecorator < ApplicationDecorator
   def full_name_with_email
     "#{object.full_name} (#{object.email})"
   end
-
-  def like_class(post_id)
-    liked?(post_id) ? "like fi-heart picked" : "like fi-heart"
-  end
-
-  private
-
-  def liked?(post_id)
-    object.likes.find_by(post_id: post_id)
-  end
 end

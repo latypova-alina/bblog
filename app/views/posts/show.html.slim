@@ -9,6 +9,7 @@
     ul.menu.align-right
       li
         = link_to "Author: #{post.user_full_name}", user_path(post.user)
-      li
-        .js-like data-id=post.id
-          a class=current_user.like_class(post.id)
+      - if current_user
+        li
+          .js-like data-post_id=post.id
+            a class=post.like_class(current_user.id)
