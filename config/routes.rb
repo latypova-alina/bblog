@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       scope module: :user_scope do
         resources :posts, only: [] do
-          resources :likes, only: :create, module: :posts
+          resources :likes, only: %i[create destroy], module: :posts
         end
       end
     end

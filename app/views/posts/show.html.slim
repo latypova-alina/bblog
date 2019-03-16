@@ -11,5 +11,5 @@
         = link_to "Author: #{post.user_full_name}", user_path(post.user)
       - if current_user
         li
-          .js-like data-post_id=post.id
+          .js-like data-post_id=post.id data-like_id=like&.id
             a class=post.like_class(current_user.id)

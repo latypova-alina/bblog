@@ -43,6 +43,7 @@ a {
 }
 
 .fi-heart {
+  color: $pink;
   &:hover, {
     color: $dark-red;
     text-decoration: none;
