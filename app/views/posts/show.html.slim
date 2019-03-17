@@ -6,7 +6,10 @@
       small = post.creation_date
     = image_tag post.large_image_url
     p = post.content
-    .callout
-      ul.menu.simple
+    ul.menu.align-right
+      li
+        = link_to "Author: #{post.user_full_name}", user_path(post.user)
+      - if current_user
         li
-          = link_to "Author: #{post.user_full_name}", user_path(post.user)
+          .js-like data-post_id=post.id data-like_id=like&.id
+            a class=post.like_class(current_user.id)

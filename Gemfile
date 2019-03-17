@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "2.4.2"
 
 gem "pg"
-gem "rails", "5.1.6.1"
+gem "rails", "5.1.6.2"
 
 # assets
 gem "autoprefixer-rails"
@@ -29,6 +29,7 @@ gem "slim"
 
 # all other gems
 gem "action_policy"
+gem "active_model_serializers"
 gem "activeadmin"
 gem "carrierwave", "~> 1.0"
 gem "decent_decoration"
@@ -67,6 +68,7 @@ group :test do
   gem "launchy"
   gem "poltergeist"
   gem "rspec-its"
+  gem "rspec_api_documentation"
   gem "shoulda-matchers"
   gem "terminal-notifier-guard"
   gem "webmock", require: false
