@@ -68,6 +68,7 @@ group :test do
   gem "launchy"
   gem "poltergeist"
   gem "rspec-its"
+  gem "rspec_api_documentation"
   gem "shoulda-matchers"
   gem "terminal-notifier-guard"
   gem "webmock", require: false

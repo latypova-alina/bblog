@@ -1,4 +1,6 @@
 RSpec.configure do |config|
+  config.include Warden::Test::Helpers
+
   config.backtrace_exclusion_patterns << /\.bundle/
 
   config.expect_with :rspec do |c|
