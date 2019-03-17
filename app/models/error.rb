@@ -4,7 +4,7 @@ class Error
 
   CODES_TO_STATUS = {
     unauthorized: :unauthorized,
-    record_not_found: :not_found,
+    record_not_found: :not_found
   }.freeze
 
   attr_accessor :code, :error_message

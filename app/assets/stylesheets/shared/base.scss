@@ -14,7 +14,9 @@ h5 {
 a {
   color: $red;
 
-  &:hover, &:active, &:visited {
+  &:hover,
+  &:active,
+  &:visited {
     color: $red;
     text-decoration: underline;
   }
@@ -44,7 +46,8 @@ a {
 
 .fi-heart {
   color: $pink;
-  &:hover, {
+
+  &:hover {
     color: $dark-red;
     text-decoration: none;
   }
