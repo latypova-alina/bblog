@@ -44,14 +44,18 @@ a {
   background: $success-color;
 }
 
-a.fi-heart{
+.fi-heart {
+  color: $pink;
+}
+
+a.fi-heart {
   &:hover {
     color: $dark-red;
     text-decoration: none;
   }
 }
 
-.fi-heart {
+.likes-count {
   color: $pink;
 }
 
