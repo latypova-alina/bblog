@@ -43,16 +43,3 @@ a {
 .callout.notice {
   background: $success-color;
 }
-
-.fi-heart {
-  color: $pink;
-
-  &:hover {
-    color: $dark-red;
-    text-decoration: none;
-  }
-}
-
-.picked.fi-heart {
-  color: $dark-red;
-}

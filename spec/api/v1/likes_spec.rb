@@ -12,7 +12,8 @@ resource "Post Like" do
           "type" => "likes",
           "attributes" => {
             "post_id" => post.id,
-            "user_id" => current_user.id
+            "user_id" => current_user.id,
+            "likes_count" => post.likes.count
           }
         } }
   end

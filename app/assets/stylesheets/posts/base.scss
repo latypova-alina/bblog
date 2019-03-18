@@ -1,0 +1,20 @@
+.fi-heart {
+  color: $pink;
+}
+
+a {
+  .fi-heart {
+    &:hover {
+      color: $dark-red;
+      text-decoration: none;
+    }
+  }
+}
+
+.likes-count {
+  color: $pink;
+}
+
+.picked.fi-heart {
+  color: $dark-red;
+}
