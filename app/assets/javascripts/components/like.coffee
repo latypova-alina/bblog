@@ -1,6 +1,7 @@
 class Like extends Components.Base
   refs:
     likeItem: "a.like"
+    likesCount: "li.likes-count"
 
   config:
     newLikeUrl: "/api/v1/posts/:post_id/likes"
@@ -9,6 +10,7 @@ class Like extends Components.Base
   initialize: ->
     @postId = @$el.data("post_id")
     @likeId = @$el.data("like_id")
+    @likesCount = @$el.data("likes_count")
 
   bindings: ->
     @$refs.likeItem.click @_updatePostRating
@@ -23,6 +25,7 @@ class Like extends Components.Base
         dataType: "json"
         success: (response) =>
           @_deleteLike()
+          @_updateRating(response)
     else
       $.ajax
         url: @config.newLikeUrl.replace(":post_id", @postId)
@@ -30,7 +33,10 @@ class Like extends Components.Base
         dataType: "json"
         success: (response) =>
           @_chooseLike()
+          @_updateRating(response)
 
+  _updateRating: (response)=>
+    @$refs.likesCount.text(response.data.attributes.likes_count)
 
   _chooseLike: () =>
     @$refs.likeItem.addClass("picked")

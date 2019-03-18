@@ -16,8 +16,12 @@ class PostDecorator < ApplicationDecorator
     image_url(:large)
   end
 
-  def like_class(user_id)
+  def like_class(user_id = nil)
     liked_by?(user_id) ? "like fi-heart picked" : "like fi-heart"
+  end
+
+  def likes_count
+    @likes_count = object.likes.size
   end
 
   private

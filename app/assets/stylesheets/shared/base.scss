@@ -44,13 +44,15 @@ a {
   background: $success-color;
 }
 
-.fi-heart {
-  color: $pink;
-
+a.fi-heart{
   &:hover {
     color: $dark-red;
     text-decoration: none;
   }
+}
+
+.fi-heart {
+  color: $pink;
 }
 
 .picked.fi-heart {
