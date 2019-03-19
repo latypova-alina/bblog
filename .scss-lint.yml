@@ -6,6 +6,9 @@ linters:
     allow_leading_underscore: true
     convention: "[^A-Z]"
 
+  QualifyingElement:
+      enabled: False
+
   StringQuotes:
     style: double_quotes
 
