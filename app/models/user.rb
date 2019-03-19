@@ -3,7 +3,9 @@ class User < ApplicationRecord
   include PgSearch
 
   devise :database_authenticatable, :registerable, :confirmable,
-    :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
+    omniauth_providers: %w(facebook)
+
 
   mount_uploader :avatar, AvatarUploader
 
