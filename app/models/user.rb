@@ -4,8 +4,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-    omniauth_providers: %w(facebook)
-
+    omniauth_providers: %w[facebook]
 
   mount_uploader :avatar, AvatarUploader
 

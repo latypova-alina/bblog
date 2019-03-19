@@ -12,38 +12,36 @@ describe Authenticate do
     }
   end
 
-  let(:user){ authenticate.user }
+  let(:user) { authenticate.user }
 
   describe ".call" do
-    context "when user exists" do
-      context "when user with the same uid exists" do
-        before { create :user, :with_social_uid, email: "some_other_email@example.com", full_name: "Mary Smith" }
+    context "when user with the same uid exists" do
+      before { create :user, :with_social_uid, email: "some_other_email@example.com", full_name: "Mary Smith" }
 
-        it "updates user with new social data" do
-          expect(authenticate).to be_success
+      it "updates user with new social data" do
+        expect(authenticate).to be_success
 
-          expect(user.uid).to eq("111222333")
-          expect(user.provider).to eq("facebook")
-          expect(user.full_name).to eq("Mary Smith")
-          expect(user.email).to eq("some_other_email@example.com")
+        expect(user.uid).to eq("111222333")
+        expect(user.provider).to eq("facebook")
+        expect(user.full_name).to eq("Mary Smith")
+        expect(user.email).to eq("some_other_email@example.com")
 
-          expect(User.count).to eq(1)
-        end
+        expect(User.count).to eq(1)
       end
+    end
 
-      context "when user with the same email exists" do
-        before { create :user, email: "user@example.com", full_name: "Mary Smith" }
+    context "when user with the same email exists" do
+      before { create :user, email: "user@example.com", full_name: "Mary Smith" }
 
-        it "updates user with new social data" do
-          expect(authenticate).to be_success
+      it "updates user with new social data" do
+        expect(authenticate).to be_success
 
-          expect(user.uid).to eq("111222333")
-          expect(user.provider).to eq("facebook")
-          expect(user.full_name).to eq("Mary Smith")
-          expect(user.email).to eq("user@example.com")
+        expect(user.uid).to eq("111222333")
+        expect(user.provider).to eq("facebook")
+        expect(user.full_name).to eq("Mary Smith")
+        expect(user.email).to eq("user@example.com")
 
-          expect(User.count).to eq(1)
-        end
+        expect(User.count).to eq(1)
       end
     end
 
