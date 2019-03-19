@@ -18,11 +18,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def auth_data
-    {
-      "email" => request.env["omniauth.auth"].info.email,
-      "name" => request.env["omniauth.auth"].info.name,
-      "provider" => request.env["omniauth.auth"].provider,
-      "uid" => request.env["omniauth.auth"].uid
-    }
+    request.env["omniauth.auth"]
   end
 end

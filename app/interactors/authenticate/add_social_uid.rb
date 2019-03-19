@@ -2,9 +2,10 @@ class Authenticate::AddSocialUid
   include Interactor
 
   delegate :auth_data, :user, to: :context
+  delegate :provider, :uid, to: :auth_data
 
   def call
-    user.update(provider: auth_data["provider"], uid: auth_data["uid"])
+    user.update(provider: provider, uid: uid)
 
     context.fail!(error: error) if user.invalid?
   end

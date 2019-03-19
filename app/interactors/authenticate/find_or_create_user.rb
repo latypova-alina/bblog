@@ -2,6 +2,7 @@ class Authenticate::FindOrCreateUser
   include Interactor
 
   delegate :auth_data, :user, to: :context
+  delegate :email, :name, to: :auth_data
 
   def call
     context.user = find_user || create_user
@@ -16,11 +17,11 @@ class Authenticate::FindOrCreateUser
   end
 
   def by_email
-    User.find_by(email: auth_data["email"])
+    User.find_by(email: email)
   end
 
   def by_uid_and_provider
-    User.find_by(provider: auth_data["provider"], uid: auth_data["uid"])
+    User.find_by(provider: provider, uid: uid)
   end
 
   def create_user
@@ -29,8 +30,8 @@ class Authenticate::FindOrCreateUser
 
   def create_attributes
     {
-      email: auth_data["email"],
-      full_name: auth_data["name"],
+      email: email,
+      full_name: name,
       password: Devise.friendly_token,
       confirmed_at: Time.current
     }
