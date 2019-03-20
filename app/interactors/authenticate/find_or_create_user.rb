@@ -1,8 +1,8 @@
 class Authenticate::FindOrCreateUser
   include Interactor
 
-  delegate :auth_data, :user, to: :context
-  delegate :email, :name, to: :auth_data
+  delegate :decorated_auth_data, :user, to: :context
+  delegate :email, :name, :provider, :uid, to: :decorated_auth_data
 
   def call
     context.user = find_user || create_user

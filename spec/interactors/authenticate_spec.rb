@@ -4,12 +4,16 @@ describe Authenticate do
   subject(:authenticate) { described_class.call(auth_data: auth_data) }
 
   let(:auth_data) do
-    {
-      "email" => "user@example.com",
-      "provider" => "facebook",
-      "uid" => "111222333",
-      "name" => "John Smith"
-    }
+    OmniAuth.config.add_mock(:facebook,
+      {
+        "provider" => "facebook",
+        "uid" => "111222333",
+        "info" =>
+        {
+          "email" => "user@example.com",
+          "name" => "John Smith"
+        }
+      })
   end
 
   let(:user) { authenticate.user }

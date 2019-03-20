@@ -4,6 +4,6 @@ class Authenticate::PrepareAuthData
   delegate :auth_data, to: :context
 
   def call
-    context.auth_data = AuthDataDecorator.new(auth_data)
+    context.decorated_auth_data = AuthDataDecorator.new(auth_data)
   end
 end
