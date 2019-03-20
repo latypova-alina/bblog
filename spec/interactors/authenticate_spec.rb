@@ -5,14 +5,12 @@ describe Authenticate do
 
   let(:auth_data) do
     OmniAuth.config.add_mock(:facebook,
+      "provider" => "facebook",
+      "uid" => "111222333",
+      "info" =>
       {
-        "provider" => "facebook",
-        "uid" => "111222333",
-        "info" =>
-        {
-          "email" => "user@example.com",
-          "name" => "John Smith"
-        }
+        "email" => "user@example.com",
+        "name" => "John Smith"
       })
   end
 
