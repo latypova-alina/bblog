@@ -78,3 +78,6 @@ Lint/EndAlignment:
   SupportedStylesAlignWith:
     - keyword
     - variable
+
+ClassAndModuleChildren:
+  Enabled: false
