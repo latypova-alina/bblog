@@ -18,7 +18,7 @@ describe Authenticate do
     context "when user with the same uid exists" do
       before { create :user, :with_social_uid, email: "some_other_email@example.com", full_name: "Mary Smith" }
 
-      it "updates user with new social data" do
+      it "does not update email and name" do
         expect(authenticate).to be_success
 
         expect(user.uid).to eq("111222333")
