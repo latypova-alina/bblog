@@ -11,4 +11,8 @@ class Post < ApplicationRecord
   pg_search_scope :search, against: :title, using: { tsearch: { prefix: true } }
 
   scope :with_likes, -> { left_joins(:likes).group(:id).select("posts.*, count(likes.id) as likes_count") }
+
+  scope :ransack_order, -> (param) do
+    order(sanitize_sql(param))
+  end
 end

@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   private
 
   def fetch_posts
-    sort_result = count_sort? ? sort.result.order(params[:q][:s]) : sort.result
+    sort_result = count_sort? ? sort.result.ransack_order(params[:q][:s]) : sort.result
 
     sort_result.includes(:likes).page(params[:page]).per(4)
   end
