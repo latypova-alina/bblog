@@ -4,7 +4,7 @@ feature "List Posts" do
   include_context "author signed in"
 
   before do
-    create :post, title: "Other Users Post"
+    create :post, :with_likes, title: "Other Users Post"
     create :post, user: current_user, title: "My Post"
   end
 
@@ -13,5 +13,7 @@ feature "List Posts" do
 
     expect(page).to have_content("My Post")
     expect(page).not_to have_content("Other Users Post")
+    expect(page).to have_content("0")
+    expect(page).to have_content(Like.count)
   end
 end

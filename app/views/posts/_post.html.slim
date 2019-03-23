@@ -2,4 +2,7 @@
   = link_to post_path(post) do
     h5 = post.title
     = image_tag post.medium_image_url
-    p = truncate(post.content, length: 120)
+    p.align-left
+      = truncate(post.content, length: 120)
+      .like.fi-heart
+        = post.likes_count
