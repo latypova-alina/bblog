@@ -593,6 +593,7 @@ DEPENDENCIES
   rails-assets-jquery-ujs!
   rails-assets-jquery2!
   rails-erd
+  ransack
   responders
   rollbar
   rspec-its

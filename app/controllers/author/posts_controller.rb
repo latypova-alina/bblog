@@ -21,9 +21,6 @@ module Author
       respond_with(post)
     end
 
-    def index
-    end
-
     def destroy
       post.destroy
 
@@ -34,6 +31,7 @@ module Author
 
     def fetch_posts
       Post.where(user: current_user)
+          .includes(:likes)
           .order(created_at: :desc)
           .page(params[:page]).per(4)
     end

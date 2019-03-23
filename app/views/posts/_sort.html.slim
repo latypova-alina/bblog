@@ -1,0 +1,10 @@
+ul.top-bar-right.menu.dropdown(data-dropdown-menu)
+  li
+    a href="#" Sort By
+    ul.menu
+      li
+        = sort_link sort, :title, "Title"
+      li
+        = sort_link sort, :created_at, "Creation Date"
+      li
+        = sort_link sort, :likes_count, "Likes"
