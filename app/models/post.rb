@@ -12,7 +12,5 @@ class Post < ApplicationRecord
 
   scope :with_likes, -> { left_joins(:likes).group(:id).select("posts.*, count(likes.id) as likes_count") }
 
-  scope :ransack_order, -> (param) do
-    order(sanitize_sql(param))
-  end
+  scope :ransack_order, ->(param) { order(sanitize_sql(param)) }
 end
