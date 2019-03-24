@@ -8,7 +8,7 @@
 * Ability to send feedback
 * Admin can manage posts and users
 
-##Log in
+## Log in
 
 * admin_1@example.com 123456
 * author_1@example.com 123456
