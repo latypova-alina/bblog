@@ -18,6 +18,6 @@ feature "Create like for post" do
     find(like_item).trigger("click")
 
     expect(page).to have_selector(picked_like_item)
-    expect(page).to have_content("1")
+    expect(page).to have_content(1)
   end
 end
