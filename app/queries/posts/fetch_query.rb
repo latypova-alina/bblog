@@ -7,7 +7,7 @@ module Posts
     private
 
     def fetch_posts
-      Post
+      relation
         .where(user: options[:author] || any_user)
         .includes(:likes)
         .with_likes
@@ -15,15 +15,15 @@ module Posts
 
     def sort(posts)
       posts
-        .ransack(order_by_params).result
-        .ransack_order(order_by_params)
+        .ransack(order_params).result
+        .order(order_params)
     end
 
     def any_user
       User.all
     end
 
-    def order_by_params
+    def order_params
       options[:ransack_order_by] || "created_at desc"
     end
 
