@@ -20,12 +20,12 @@ class PostsController < ApplicationController
 
   def query_params
     {
-      "ransack_order_by": order_by_param,
+      "ransack_order_by": order_param,
       "page": params[:page]
     }
   end
 
-  def order_by_param
+  def order_param
     params[:q] ? params[:q][:s] : nil
   end
 end

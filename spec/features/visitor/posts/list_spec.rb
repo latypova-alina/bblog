@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "List Posts" do
-  let(:post) { create :post, title: "Winter is coming."}
+  let(:post) { create :post, title: "Winter is coming." }
 
   before do
     create :post, title: "Hodor! Hodor."

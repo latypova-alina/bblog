@@ -1,8 +1,8 @@
 require "rails_helper"
 
 feature "Sort Posts" do
-  let(:next_page) { find("a", text: "Next ›")}
-  let(:prev_page) { find("a", text: "‹ Prev")}
+  let(:next_page) { find("a", text: "Next ›") }
+  let(:prev_page) { find("a", text: "‹ Prev") }
 
   def check_first_four_posts
     4.times do |i|
@@ -18,7 +18,7 @@ feature "Sort Posts" do
     end
   end
 
-  before :all do
+  before do
     8.times do |i|
       create(:post, title: "Post Title #{i}", created_at: Date.new - i.day).tap do |post|
         create_list :like, i, post: post
