@@ -15,7 +15,10 @@
     "S3_KEY": { "required": true },
     "S3_REGION": { "required": true },
     "S3_SECRET": { "required": true },
-    "FEEDBACK_EMAIL": { "required": true }
+    "FEEDBACK_EMAIL": { "required": true },
+    "FACEBOOK_APP_ID": { "required": true },
+    "FACEBOOK_APP_SECRET": { "required": true }
+
   },
   "addons": [
     "heroku-postgresql",
