@@ -18,7 +18,6 @@
     "FEEDBACK_EMAIL": { "required": true },
     "FACEBOOK_APP_ID": { "required": true },
     "FACEBOOK_APP_SECRET": { "required": true }
-
   },
   "addons": [
     "heroku-postgresql",
