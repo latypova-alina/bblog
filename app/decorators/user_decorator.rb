@@ -9,6 +9,10 @@ class UserDecorator < ApplicationDecorator
     avatar_url(:medium)
   end
 
+  def thumbnail_image_url
+    avatar_url(:thumbnail)
+  end
+
   def full_name_with_email
     "#{object.full_name} (#{object.email})"
   end

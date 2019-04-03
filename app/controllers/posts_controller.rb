@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   expose :like, :fetch_like
   expose_decorated :posts, :fetch_posts
   expose :sort, :sort
+  expose_decorated :comments, :fetch_comments
 
   private
 
@@ -22,5 +23,9 @@ class PostsController < ApplicationController
 
   def sort
     @sort ||= Post.with_likes.ransack(params[:q])
+  end
+
+  def fetch_comments
+    Comment.where(post: post)
   end
 end
