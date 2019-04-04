@@ -1,0 +1,6 @@
+.row.medium-8.large-7.columns
+  h4 Comments
+  = render partial: "comment", collection: comments
+
+.row.text-center
+  = paginate comments

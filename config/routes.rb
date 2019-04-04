@@ -22,7 +22,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: %i[show index]
+  resources :posts, only: %i[show index] do
+    resources :comments, only: :index
+  end
 
   resources :search, only: :index
 

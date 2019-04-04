@@ -10,5 +10,8 @@
       li
         = link_to "Author: #{post.user_full_name}", user_path(post.user)
       = render "like"
+
   h4 Comments
   = render partial: "comment", collection: comments
+  .more-comments
+  = link_to "See more comments", post_comments_path(post)

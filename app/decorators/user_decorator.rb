@@ -9,6 +9,10 @@ class UserDecorator < ApplicationDecorator
     avatar_url(:medium)
   end
 
+  def small_image_url
+    avatar_url(:small)
+  end
+
   def thumbnail_image_url
     avatar_url(:thumbnail)
   end

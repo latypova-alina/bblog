@@ -26,6 +26,6 @@ class PostsController < ApplicationController
   end
 
   def fetch_comments
-    Comment.where(post: post)
+    Comment.where(post: post).limit(5).order(created_at: :desc)
   end
 end
