@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   private
 
   def fetch_posts
-    Posts::FetchQuery.new(query_params).all
+    Posts::FetchQuery.new(params).all
   end
 
   def sort
@@ -16,16 +16,5 @@ class PostsController < ApplicationController
 
   def fetch_like
     Like.find_by(user: current_user, post: post)
-  end
-
-  def query_params
-    {
-      "ransack_order_by": order_param,
-      "page": params[:page]
-    }
-  end
-
-  def order_param
-    params[:q] ? params[:q][:s] : nil
   end
 end

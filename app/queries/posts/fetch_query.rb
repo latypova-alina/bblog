@@ -1,14 +1,14 @@
 module Posts
   class FetchQuery < Posts::BaseQuery
     def all
-      sort(fetch_posts).page(page_number).per(4)
+      sort(fetch_posts).page(page_number).per(SearchController::PAGES_NUM)
     end
 
     private
 
     def fetch_posts
       relation
-        .where(user: options[:author] || any_user)
+        .where(user: params[:author])
         .includes(:likes)
         .with_likes
     end
@@ -19,16 +19,12 @@ module Posts
         .order(order_params)
     end
 
-    def any_user
-      User.all
-    end
-
     def order_params
-      options[:ransack_order_by] || "created_at desc"
+      params[:ransack_order_by] || "created_at desc"
     end
 
     def page_number
-      options[:page] || 1
+      params[:page] || 1
     end
   end
 end
