@@ -7,8 +7,10 @@ feature "Show Post" do
     create :post, title: "Winter is coming.", content: "Hodor! Hodor."
   end
 
+  let(:likes_counter) { "li.likes-count" }
+
   before do
-    create_list :like, 10, post: post
+    create_list :like, 2, post: post
   end
 
   scenario "Visitor sees post" do
@@ -18,6 +20,6 @@ feature "Show Post" do
     expect(page).to have_content("Hodor! Hodor.")
 
     expect(page).to have_selector("a.like")
-    expect(page).to have_content(10)
+    expect(page).to have_css(likes_counter, text: 2)
   end
 end
