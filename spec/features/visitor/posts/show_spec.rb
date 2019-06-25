@@ -16,6 +16,6 @@ feature "Show Post" do
     expect(page).to have_content("Hodor! Hodor.")
 
     expect(page).not_to have_selector("a.like")
-    expect(page).to have_content(5)
+    expect(page).to have_css("li.likes-count", text: 5)
   end
 end
