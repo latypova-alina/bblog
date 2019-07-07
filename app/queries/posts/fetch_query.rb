@@ -26,6 +26,8 @@ module Posts
     end
 
     def order_param(params)
+      #if there was a sorting query then params[:q] is filled.
+      #example of params[:q]: <ActionController::Parameters {"s"=>"likes_count desc"} permitted: false>
       params[:q] ? params[:q][:s] : nil
     end
 
