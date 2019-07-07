@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  PAGES_NUM = 4
+  PER_PAGE_LIMIT = 4
 
   expose :search_param, :search_param
   expose_decorated :posts, :fetch_posts
@@ -11,7 +11,7 @@ class SearchController < ApplicationController
   private
 
   def fetch_posts
-    Post.search(search_param).page(params[:page]).per(PAGES_NUM)
+    Post.search(search_param).page(params[:page]).per(PER_PAGE_LIMIT)
   end
 
   def search_param
@@ -19,6 +19,6 @@ class SearchController < ApplicationController
   end
 
   def fetch_authors
-    User.authors.search(search_param).page(params[:page]).per(PAGES_NUM)
+    User.authors.search(search_param).page(params[:page]).per(PER_PAGE_LIMIT)
   end
 end

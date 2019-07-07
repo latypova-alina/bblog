@@ -13,7 +13,7 @@ module Posts
     def all
       sort(fetch_posts)
         .page(page_number)
-        .per(SearchController::PAGES_NUM)
+        .per(SearchController::PER_PAGE_LIMIT)
         .order(order_params)
     end
 
