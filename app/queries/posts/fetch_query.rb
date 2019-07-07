@@ -1,7 +1,14 @@
 module Posts
-  class FetchQuery < Posts::BaseQuery
+  class FetchQuery
     DEFAULT_ORDER = "created_at desc"
     DEFAULT_PAGE = 1
+
+    attr_reader :relation, :params
+
+    def initialize(params = {})
+      @relation = Post.extending(Scopes)
+      @params = query_params(params)
+    end
 
     def all
       sort(fetch_posts)
@@ -12,15 +19,29 @@ module Posts
 
     private
 
+    def query_params(params)
+      {
+        "ransack_order_by": order_param(params),
+        "author": params[:author] || any_user
+      }
+    end
+
+    def order_param(params)
+      params[:q] ? params[:q][:s] : nil
+    end
+
+    def any_user
+      User.all
+    end
+
     def fetch_posts
       relation
         .where(user: params[:author])
-        .includes(:likes)
         .with_likes
     end
 
     def sort(posts)
-      posts.ransack(order_params).result
+      posts.ransack(order_params).result.includes(:likes)
     end
 
     def order_params
