@@ -3,10 +3,9 @@ module Posts
     DEFAULT_ORDER = "created_at desc"
     DEFAULT_PAGE = 1
 
-    attr_reader :relation, :params
+    attr_reader :params
 
     def initialize(params = {})
-      @relation = Post.extending(Scopes)
       @params = query_params(params)
     end
 
@@ -35,7 +34,7 @@ module Posts
     end
 
     def fetch_posts
-      relation
+      Post.extending(Scopes)
         .where(user: params[:author])
         .with_likes
     end
