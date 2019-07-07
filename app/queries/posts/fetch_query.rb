@@ -21,8 +21,8 @@ module Posts
 
     def query_params(params)
       {
-        "ransack_order_by": order_param(params),
-        "author": params[:author] || any_user
+        ransack_order_by: order_param(params),
+        author: params[:author] || any_user
       }
     end
 
