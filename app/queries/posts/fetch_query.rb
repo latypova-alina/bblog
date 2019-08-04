@@ -1,6 +1,6 @@
 module Posts
   class FetchQuery
-    DEFAULT_ORDER = "created_at desc"
+    DEFAULT_ORDER = "created_at desc".freeze
     DEFAULT_PAGE = 1
 
     attr_reader :params
@@ -26,8 +26,8 @@ module Posts
     end
 
     def order_param(params)
-      #if there was a sorting query then params[:q] is filled.
-      #example of params[:q]: <ActionController::Parameters {"s"=>"likes_count desc"} permitted: false>
+      # if there was a sorting query then params[:q] is filled.
+      # example of params[:q]: <ActionController::Parameters { "s"=>"likes_count desc" } permitted: false>
       params[:q] ? params[:q][:s] : nil
     end
 
@@ -37,8 +37,8 @@ module Posts
 
     def fetch_posts
       Post.extending(Scopes)
-        .where(user: params[:author])
-        .with_likes
+          .where(user: params[:author])
+          .with_likes
     end
 
     def sort(posts)
