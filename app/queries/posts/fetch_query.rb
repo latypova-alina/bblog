@@ -42,7 +42,7 @@ module Posts
     end
 
     def sort(posts)
-      posts.ransack(order_params).result.includes(:likes)
+      posts.ransack(order_params).result.preload(:likes)
     end
 
     def order_params

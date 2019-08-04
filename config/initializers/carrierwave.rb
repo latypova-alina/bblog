@@ -7,4 +7,5 @@ CarrierWave.configure do |config|
     region:                ENV.fetch("S3_REGION")
   }
   config.fog_directory = ENV.fetch("S3_BUCKET")
+  config.storage = Rails.env.test? ? :file : :fog
 end
