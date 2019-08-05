@@ -44,8 +44,8 @@ module Author
 
     def query_params
       {
-        "author": current_user,
-        "page": params[:page]
+        author: current_user,
+        page: params[:page]
       }
     end
   end
