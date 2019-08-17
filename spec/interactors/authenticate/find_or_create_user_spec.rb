@@ -1,11 +1,7 @@
 require "rails_helper"
 
 describe Authenticate::FindOrCreateUser do
-  subject do 
-    described_class.call(
-      decorated_auth_data: auth_data
-    ) 
-  end
+  subject { described_class.call(decorated_auth_data: auth_data) } 
 
   let(:auth_data) do
     OmniAuth::AuthHash.new({
@@ -39,7 +35,7 @@ describe Authenticate::FindOrCreateUser do
         create :user, 
           email: "user@example.com", 
           full_name: "Mary Smith"
-        end
+      end
 
       it { is_expected.to be_success }
       
@@ -67,9 +63,7 @@ describe Authenticate::FindOrCreateUser do
         let(:auth_data) do
           OmniAuth::AuthHash.new({
             email: nil,
-            name: "John Smith",
-            provider: "facebook",
-            uid: "111222333"
+            name: "John Smith"
           })
         end
 
