@@ -35,9 +35,4 @@ FactoryGirl.define do
   trait :with_avatar do
     avatar { File.open("spec/support/fixtures/user_image_#{rand(1..3)}.jpg") }
   end
-
-  trait :with_social_uid do
-    provider "facebook"
-    uid "111222333"
-  end
 end
