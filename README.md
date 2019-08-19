@@ -13,3 +13,5 @@
 * admin_1@example.com 123456
 * author_1@example.com 123456
 * reader_1@example.com 123456
+
+You can find a deployed application on http://my-bblog.herokuapp.com/
