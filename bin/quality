@@ -12,5 +12,5 @@ bin/scss-lint
 bin/slim-lint app/views
 
 bin/bundle-audit update
-bin/bundle-audit
-
+# Ignore omniauth CSRF vulnerability
+bin/bundle-audit --ignore CVE-2015-9284
