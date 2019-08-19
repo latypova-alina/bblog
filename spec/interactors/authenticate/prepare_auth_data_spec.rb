@@ -1,19 +1,19 @@
 require "rails_helper"
 
 describe Authenticate::PrepareAuthData do
-  subject(:auth_data_object) do 
+  subject(:auth_data_object) do
     described_class.call(auth_data: auth_data).decorated_auth_data
   end
 
   let(:auth_data) do
-    OmniAuth::AuthHash.new({
+    OmniAuth::AuthHash.new(
       provider: "facebook",
       uid: "111222333",
       info: {
         email: "user@example.com",
         name: "John Smith"
       }
-    })
+    )
   end
 
   describe ".call" do
