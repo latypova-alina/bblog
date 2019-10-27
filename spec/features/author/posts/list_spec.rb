@@ -3,7 +3,7 @@ require "rails_helper"
 feature "List Posts" do
   include_context "author signed in"
 
-  let(:my_post) { create :post, id: 1, user: current_user, title: "My Post" }
+  let(:my_post) { create :post, user: current_user, title: "My Post" }
 
   before do
     create :post, title: "Other Users Post"
@@ -15,6 +15,6 @@ feature "List Posts" do
 
     expect(page).to have_content("My Post")
     expect(page).not_to have_content("Other Users Post")
-    expect(page).to have_css(".post#1 .like.fi-heart", text: 5)
+    expect(page).to have_css(".post##{my_post.id} .like.fi-heart", text: 5)
   end
 end
