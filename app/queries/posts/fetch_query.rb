@@ -5,8 +5,8 @@ module Posts
 
     attr_reader :params
 
-    def initialize(params = {})
-      @params = query_params(params)
+    def initialize(params)
+      @params = params
     end
 
     def all
@@ -18,26 +18,16 @@ module Posts
 
     private
 
-    def query_params(params)
-      {
-        ransack_order_by: order_param(params),
-        author: params[:author] || any_user
-      }
-    end
-
-    def order_param(params)
+    def order_param
       # if there was a sorting query then params[:q] is filled.
       # example of params[:q]: <ActionController::Parameters { "s"=>"likes_count desc" } permitted: false>
-      params[:q] ? params[:q][:s] : nil
-    end
 
-    def any_user
-      User.all
+      params[:q] ? params[:q][:s] : nil
     end
 
     def fetch_posts
       Post.extending(Scopes)
-          .where(user: params[:author])
+          .where(user: author)
           .with_likes
     end
 
@@ -45,8 +35,12 @@ module Posts
       posts.ransack(order_params).result.preload(:likes)
     end
 
+    def author
+      params[:author] || User.all
+    end
+
     def order_params
-      params[:ransack_order_by] || DEFAULT_ORDER
+      order_param || DEFAULT_ORDER
     end
 
     def page_number
