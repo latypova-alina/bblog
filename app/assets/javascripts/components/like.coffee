@@ -1,7 +1,7 @@
 class Like extends Components.Base
   refs:
     likeItem: "a.like"
-    likesCount: "li.likes-count"
+    likesCount: ".likes-count"
 
   config:
     newLikeUrl: "/api/v1/posts/:post_id/likes"

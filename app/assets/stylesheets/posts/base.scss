@@ -11,8 +11,18 @@ a.fi-heart {
 
 .likes-count {
   color: $pink;
+  flex-grow: 1;
+  text-align: center;
 }
 
 .picked.fi-heart {
   color: $dark-red;
+}
+
+.likes-info {
+  display: flex;
+}
+
+.likes-info > * {
+  margin: 5px;
 }
