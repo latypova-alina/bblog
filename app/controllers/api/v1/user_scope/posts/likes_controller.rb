@@ -10,7 +10,7 @@ module Api
             save_like = Likes::Save.call(like: like)
 
             if save_like.success?
-              respond_with_resource(like, location: posts_path)
+              respond_with_resource(like, location: posts_path, include: :post)
             else
               respond_with_error(save_like.error_code, save_like.error_message)
             end
@@ -20,7 +20,7 @@ module Api
             destroy_like = Likes::Destroy.call(like: like)
 
             if destroy_like.success?
-              respond_with_resource(like, location: posts_path)
+              respond_with_resource(like, location: posts_path, include: :post)
             else
               respond_with_error(destroy_like.error_code, destroy_like.error_message)
             end

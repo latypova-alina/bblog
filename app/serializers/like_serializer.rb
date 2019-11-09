@@ -1,7 +1,5 @@
 class LikeSerializer < ApplicationSerializer
-  attributes :id, :post_id, :user_id, :likes_count
+  attributes :id, :post_id, :user_id
 
-  def likes_count
-    object.post.likes.count
-  end
+  has_one :post
 end

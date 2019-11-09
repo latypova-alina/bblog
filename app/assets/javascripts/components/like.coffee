@@ -36,7 +36,7 @@ class Like extends Components.Base
           @_updateRating(response)
 
   _updateRating: (response)=>
-    @$refs.likesCount.text(response.data.attributes.likes_count)
+    @$refs.likesCount.text(response.included[0].attributes.likes_count)
 
   _chooseLike: () =>
     @$refs.likeItem.addClass("picked")
