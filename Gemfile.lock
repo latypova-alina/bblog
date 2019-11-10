@@ -537,7 +537,7 @@ PLATFORMS
 DEPENDENCIES
   action_policy
   active_link_to
-  active_model_serializers (= 0.10.8)
+  active_model_serializers (~> 0.10.0)
   activeadmin
   autoprefixer-rails
   awesome_print

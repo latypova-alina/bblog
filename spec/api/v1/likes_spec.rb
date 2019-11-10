@@ -6,16 +6,34 @@ resource "Post Like" do
   let(:post_id) { post.id }
 
   def expected_responce_body(like_id)
-    { "data" =>
+    {
+      "data" => {
+        "id" => like_id.to_s,
+        "type" => "likes",
+        "attributes" => {
+          "user_id" => current_user.id
+        },
+        "relationships" => {
+          "post" => {
+            "data" => {
+              "id" => post.id.to_s,
+              "type" => "posts"
+            }
+          }
+        }
+      },
+      "included" => [
         {
-          "id" => like_id.to_s,
-          "type" => "likes",
+          "id" => post.id.to_s,
+          "type" => "posts",
           "attributes" => {
-            "post_id" => post.id,
-            "user_id" => current_user.id,
+            "title" => post.title,
+            "content" => post.content,
             "likes_count" => post.likes.count
           }
-        } }
+        }
+      ]
+    }
   end
 
   post "/api/v1/posts/:post_id/likes" do

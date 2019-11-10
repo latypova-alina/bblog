@@ -29,7 +29,7 @@ gem "slim"
 
 # all other gems
 gem "action_policy"
-gem "active_model_serializers", "0.10.8"
+gem "active_model_serializers", "~> 0.10.0"
 gem "activeadmin"
 gem "carrierwave", "~> 1.0"
 gem "decent_decoration"
