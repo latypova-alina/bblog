@@ -28,12 +28,12 @@ class Like extends Components.Base
 
   _deleteLike: () =>
     $.ajax
-        url: @config.deleteLikeUrl.replace(":post_id", @postId).replace(":id", @likeId)
-        type: "DELETE"
-        dataType: "json"
-        success: (response) =>
-          @_markAsUnliked()
-          @_updateRating(response)
+      url: @config.deleteLikeUrl.replace(":post_id", @postId).replace(":id", @likeId)
+      type: "DELETE"
+      dataType: "json"
+      success: (response) =>
+        @_markAsUnliked()
+        @_updateRating(response)
 
   _createLike: () =>
     $.ajax
