@@ -10,9 +10,19 @@ a.fi-heart {
 }
 
 .likes-count {
+  flex-grow: 1;
   color: $pink;
+  text-align: center;
 }
 
 .picked.fi-heart {
   color: $dark-red;
+}
+
+.likes-info {
+  display: flex;
+
+  > * {
+    margin: 5px;
+  }
 }

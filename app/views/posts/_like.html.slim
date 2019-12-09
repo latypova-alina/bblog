@@ -1,11 +1,8 @@
 .js-like data-post_id=post.id data-like_id=like&.id data-likes_count=post.likes_count
-  ul.menu.align-right
-    li.likes-count
+  .likes-info
+    .likes-count
       = post.likes_count
     - if current_user
-      li
-        a class=post.like_class(current_user.id)
+        a class=post.like_class(current_user)
     - else
-      li
         div class=post.like_class
-

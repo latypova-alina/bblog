@@ -6,36 +6,54 @@ resource "Post Like" do
   let(:post_id) { post.id }
 
   def expected_responce_body(like_id)
-    { "data" =>
+    {
+      "data" => {
+        "id" => like_id.to_s,
+        "type" => "likes",
+        "attributes" => {
+          "user_id" => current_user.id
+        },
+        "relationships" => {
+          "post" => {
+            "data" => {
+              "id" => post.id.to_s,
+              "type" => "posts"
+            }
+          }
+        }
+      },
+      "included" => [
         {
-          "id" => like_id.to_s,
-          "type" => "likes",
+          "id" => post.id.to_s,
+          "type" => "posts",
           "attributes" => {
-            "post_id" => post.id,
-            "user_id" => current_user.id,
+            "title" => post.title,
+            "content" => post.content,
             "likes_count" => post.likes.count
           }
-        } }
+        }
+      ]
+    }
   end
 
   post "/api/v1/posts/:post_id/likes" do
+    include_context "current user signed in"
+
+    example "Create a new Like [success]" do
+      do_request
+
+      expect(post.likes.count).to eq(1)
+      expect(response_status).to eq(200)
+      expect(json_response_body).to eq(expected_responce_body(Like.all.first.id))
+    end
+
     context "when user is not authorized" do
-      example "Create Like" do
+      before { logout }
+
+      example "Create a new Like [error] - Create a like with no access" do
         do_request
 
         expect(response_status).to eq(401)
-      end
-    end
-
-    context "when user is authorized" do
-      include_context "current user signed in"
-
-      example "Create Like" do
-        do_request
-
-        expect(post.likes.count).to eq(1)
-        expect(response_status).to eq(200)
-        expect(json_response_body).to eq(expected_responce_body(Like.all.first.id))
       end
     end
   end
@@ -44,25 +62,25 @@ resource "Post Like" do
     let(:like) { create :like, post: post }
     let(:id) { like.id }
 
+    include_context "current user signed in"
+
+    let(:like) { create :like, post: post, user: current_user }
+
+    example "Delete a Like [success]" do
+      do_request
+
+      expect(post.likes.count).to eq(0)
+      expect(response_status).to eq(200)
+      expect(json_response_body).to eq(expected_responce_body(id))
+    end
+
     context "when user is not authorized" do
-      example "Delete Like" do
+      before { logout }
+
+      example "Delete a Like [error] - Delete a like with no access" do
         do_request
 
         expect(response_status).to eq(401)
-      end
-    end
-
-    context "when user is authorized" do
-      include_context "current user signed in"
-
-      let(:like) { create :like, post: post, user: current_user }
-
-      example "Delete Like" do
-        do_request
-
-        expect(post.likes.count).to eq(0)
-        expect(response_status).to eq(200)
-        expect(json_response_body).to eq(expected_responce_body(id))
       end
     end
   end

@@ -8,7 +8,7 @@ FactoryGirl.define do
 
   trait :with_likes do
     after(:create) do |post|
-      create_list :like, rand(50..100), post: post
+      create_list :like, 2, post: post
     end
   end
 end
