@@ -43,3 +43,8 @@ a {
 .callout.notice {
   background: $success-color;
 }
+
+footer li {
+  list-style-type: none;
+  margin:0 0 10px 0;
+}
