@@ -11,7 +11,7 @@ feature "Create Feedback" do
 
     open_email(ENV.fetch("FEEDBACK_EMAIL"))
 
-    expect(current_email).to have_subject("Feedback")
+    expect(current_email).to have_subject("Send feedback")
     expect(current_email).to be_delivered_from(feedback_attributes[:email])
 
     expect(current_email).to have_body_text(feedback_attributes[:name])
