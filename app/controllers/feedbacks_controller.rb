@@ -1,11 +1,8 @@
 class FeedbacksController < ApplicationController
   expose :feedback
 
-  def new
-  end
-
   def create
-    UserMailer.feedback(feedback).deliver_now! if feedback.save
+    FeedbackMailer.send_feedback(feedback).deliver_now! if feedback.valid?
 
     respond_with feedback, location: root_path
   end
@@ -13,6 +10,6 @@ class FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.fetch(:feedback, {}).permit(:email, :name, :message)
+    params.require(:feedback).permit(:email, :name, :message)
   end
 end
