@@ -26,9 +26,9 @@ module Posts
     end
 
     def fetch_posts
-      Post.extending(Scopes)
-          .where(user: author)
-          .with_likes
+      return Post.all unless author
+
+      Post.where(user: author)
     end
 
     def sort(posts)
@@ -36,7 +36,7 @@ module Posts
     end
 
     def author
-      params[:author] || User.all
+      params[:author].presence
     end
 
     def order_params
