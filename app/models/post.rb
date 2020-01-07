@@ -9,4 +9,8 @@ class Post < ApplicationRecord
   mount_uploader :image, PostImageUploader
 
   pg_search_scope :search, against: :title, using: { tsearch: { prefix: true } }
+
+  def self.ransortable_attributes(auth_object = nil)
+    ["title", "created_at", "likes_count"]
+  end
 end

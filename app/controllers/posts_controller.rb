@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   private
 
   def fetch_posts
-    Posts::FetchQuery.new(params).all
+    Posts::FetchQuery.new(sort.result, params).all
   end
 
   def sort
