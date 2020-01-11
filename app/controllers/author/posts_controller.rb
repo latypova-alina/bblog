@@ -30,10 +30,7 @@ module Author
     private
 
     def fetch_posts
-      Post.where(user: current_user)
-          .includes(:likes)
-          .order(created_at: :desc)
-          .page(params[:page]).per(4)
+      Posts::FetchQuery.new(Post.all, query_params).all
     end
 
     def authorize_resource!
@@ -43,6 +40,13 @@ module Author
     def post_params
       params.require(:post).permit(:title, :content, :image)
             .merge(user: current_user)
+    end
+
+    def query_params
+      {
+        author: current_user,
+        page: params[:page]
+      }
     end
   end
 end

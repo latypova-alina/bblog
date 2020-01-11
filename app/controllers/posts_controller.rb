@@ -7,20 +7,14 @@ class PostsController < ApplicationController
   private
 
   def fetch_posts
-    sort_result = count_sort? ? sort.result.ransack_order(params[:q][:s]) : sort.result
+    Posts::FetchQuery.new(sort.result, params).all
+  end
 
-    sort_result.includes(:likes).page(params[:page]).per(4)
+  def sort
+    @sort ||= Post.ransack(params[:q])
   end
 
   def fetch_like
     Like.find_by(user: current_user, post: post)
-  end
-
-  def count_sort?
-    params[:q] && params[:q][:s].include?("count")
-  end
-
-  def sort
-    @sort ||= Post.with_likes.ransack(params[:q])
   end
 end

@@ -6,6 +6,7 @@ feature "Create like for post" do
   let(:post) { create :post }
 
   let(:like_item) { "a.like.fi-heart" }
+  let(:likes_counter) { "li.likes-count" }
   let(:picked_like_item) { "a.like.fi-heart.picked" }
 
   scenario "Visitor likes the post", js: true do
@@ -18,6 +19,6 @@ feature "Create like for post" do
     find(like_item).trigger("click")
 
     expect(page).to have_selector(picked_like_item)
-    expect(page).to have_content("1")
+    expect(page).to have_css(likes_counter, text: 1)
   end
 end

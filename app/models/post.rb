@@ -10,7 +10,7 @@ class Post < ApplicationRecord
 
   pg_search_scope :search, against: :title, using: { tsearch: { prefix: true } }
 
-  scope :with_likes, -> { left_joins(:likes).group(:id).select("posts.*, count(likes.id) as likes_count") }
-
-  scope :ransack_order, ->(param) { order(sanitize_sql(param)) }
+  def self.ransortable_attributes(_auth_object = nil)
+    %w(title created_at likes_count)
+  end
 end

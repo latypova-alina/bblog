@@ -1,7 +1,7 @@
 class PostDecorator < ApplicationDecorator
   decorates_association :user
 
-  delegate :title, :content, :created_at, :image_url, :id
+  delegate :title, :content, :created_at, :image_url, :id, :likes, :likes_count
   delegate :full_name, to: :user, prefix: true
 
   def creation_date
@@ -20,15 +20,11 @@ class PostDecorator < ApplicationDecorator
     liked_by?(user_id) ? "like fi-heart picked" : "like fi-heart"
   end
 
-  def likes_count
-    @likes_count = object.likes.size
-  end
-
   private
 
   def liked_by?(user_id)
     return false if user_id.blank?
 
-    object.likes.find_by(user_id: user_id)
+    likes.find_by(user_id: user_id)
   end
 end

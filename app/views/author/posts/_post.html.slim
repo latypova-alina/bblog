@@ -1,17 +1,18 @@
 .column
-  = link_to post_path(post) do
-    h5 = post.title
-    = image_tag post.medium_image_url
-    p.align-left
-      = truncate(post.content, length: 120)
-      .like.fi-heart
-        = post.likes_count
+  .post id=post.id
+    = link_to post_path(post) do
+      h5 = post.title
+      = image_tag post.medium_image_url
+      p.align-left
+        = truncate(post.content, length: 120)
+        .like.fi-heart
+          = post.likes_count
 
-    = link_to "Edit",
-      edit_author_post_path(post),
-      class: "button small expanded secondary"
-    = link_to "Delete",
-      author_post_path(post),
-      method: :delete,
-      data: { confirm: "Are you sure?" },
-      class: "alert button small expanded"
+      = link_to "Edit",
+        edit_author_post_path(post),
+        class: "button small expanded secondary"
+      = link_to "Delete",
+        author_post_path(post),
+        method: :delete,
+        data: { confirm: "Are you sure?" },
+        class: "alert button small expanded"

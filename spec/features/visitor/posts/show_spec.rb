@@ -2,7 +2,11 @@ require "rails_helper"
 
 feature "Show Post" do
   let(:post) do
-    create :post, :with_likes, title: "Winter is coming.", content: "Hodor! Hodor."
+    create :post, title: "Winter is coming.", content: "Hodor! Hodor."
+  end
+
+  before do
+    create_list :like, 5, post: post
   end
 
   scenario "Visitor sees post" do
@@ -12,6 +16,6 @@ feature "Show Post" do
     expect(page).to have_content("Hodor! Hodor.")
 
     expect(page).not_to have_selector("a.like")
-    expect(page).to have_content(post.likes.count)
+    expect(page).to have_css("li.likes-count", text: 5)
   end
 end
