@@ -84,3 +84,8 @@ ClassAndModuleChildren:
 
 RSpec/NestedGroups:
   Max: 4
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%i": "()"
+    "%w": "()"

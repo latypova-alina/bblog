@@ -1,13 +1,13 @@
 class User
   class ParameterSanitizer < Devise::ParameterSanitizer
-    USER_PARAMS = %i[
+    USER_PARAMS = %i(
       full_name
       email
       avatar
       password
       password_confirmation
       about_info
-    ].freeze
+    ).freeze
 
     def initialize(*)
       super
