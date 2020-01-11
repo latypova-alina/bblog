@@ -7,7 +7,7 @@ ActiveAdmin.register User do
     actions
   end
 
-  filter :role, as: :select, collection: %i[reader author admin]
+  filter :role, as: :select, collection: %i(reader author admin)
 
   show do
     attributes_table do
