@@ -10,7 +10,7 @@ class Post < ApplicationRecord
 
   pg_search_scope :search, against: :title, using: { tsearch: { prefix: true } }
 
-  def self.ransortable_attributes(auth_object = nil)
-    ["title", "created_at", "likes_count"]
+  def self.ransortable_attributes(_auth_object = nil)
+    %w(title created_at likes_count)
   end
 end
