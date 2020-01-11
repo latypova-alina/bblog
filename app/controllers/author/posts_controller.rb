@@ -30,7 +30,7 @@ module Author
     private
 
     def fetch_posts
-      Posts::FetchQuery.new(query_params).all
+      Posts::FetchQuery.new(Post.all, query_params).all
     end
 
     def authorize_resource!

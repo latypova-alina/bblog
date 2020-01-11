@@ -10,7 +10,7 @@ module Posts
     end
 
     def all
-      author ? posts.where(user: author) : posts
+      (author ? posts.where(user: author) : posts)
         .page(page_number)
         .per(SearchController::PER_PAGE_LIMIT)
     end
