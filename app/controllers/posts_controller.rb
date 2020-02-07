@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def fetch_like
-    Like.find_by(user: current_user, post: post)
+    post.likes.find_by(user: current_user)
   end
 
   def count_sort?

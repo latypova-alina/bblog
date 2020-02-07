@@ -19,29 +19,35 @@ class Like extends Components.Base
     event.preventDefault()
 
     if @$refs.likeItem[0].classList.contains("picked")
-      $.ajax
-        url: @config.deleteLikeUrl.replace(":post_id", @postId).replace(":id", @likeId)
-        type: "DELETE"
-        dataType: "json"
-        success: (response) =>
-          @_deleteLike()
-          @_updateRating(response)
+      @_deleteLike()
     else
-      $.ajax
-        url: @config.newLikeUrl.replace(":post_id", @postId)
-        type: "POST"
-        dataType: "json"
-        success: (response) =>
-          @_chooseLike()
-          @_updateRating(response)
+      @_createLike()
 
   _updateRating: (response)=>
     @$refs.likesCount.text(response.data.attributes.likes_count)
 
-  _chooseLike: () =>
+  _deleteLike: () =>
+    $.ajax
+      url: @config.deleteLikeUrl.replace(":post_id", @postId).replace(":id", @likeId)
+      type: "DELETE"
+      dataType: "json"
+      success: (response) =>
+        @_markAsUnliked()
+        @_updateRating(response)
+
+  _createLike: () =>
+    $.ajax
+      url: @config.newLikeUrl.replace(":post_id", @postId)
+      type: "POST"
+      dataType: "json"
+      success: (response) =>
+        @_markAsLiked()
+        @_updateRating(response)
+
+  _markAsLiked: () =>
     @$refs.likeItem.addClass("picked")
 
-  _deleteLike: () =>
+  _markAsUnliked: () =>
     @$refs.likeItem.removeClass("picked")
 
 $ ->
